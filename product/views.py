@@ -25,11 +25,9 @@ def index(request):
     return render(request, "index.html", context=data)
 
 def category(request,id):
-    categories = Category_product.objects.all()
     cat=get_object_or_404(Category_product,pk=id)
     product=cat.products.all()
     data={
-        'categories':categories,
         'products':product
     }
     return render(request,'category.html',context=data)

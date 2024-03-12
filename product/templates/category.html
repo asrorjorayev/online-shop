@@ -11,7 +11,7 @@
                <h3> $<strong class="price_text">{{product.price}}</strong></h3>
                <a href="">card+</a>
                 <h4>{{product.name}}</h4>
-                <a href="{% url 'product:product_detail'product.id %}">Detail</a>
+                <a href="{% url 'product:product_detail' product.id %}">Detail</a>
              </div>
           </div>
         {% endfor %}
