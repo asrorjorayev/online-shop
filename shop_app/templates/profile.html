@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+ 
+<div id="plant" class="section_Clients layout_padding padding_bottom_0">
+    <div class="container">
+                <h2>Update</h2>
+                <div id="testimonial" class="carousel slide" data-ride="carousel">
+                    <form action="" method="post" enctype="multipart/form-data">
+                     {%csrf_token%}
+                         {{ form.as_p }}
+                         <button type="submit" class="btn btn-primary" >update</button>
+                    </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>      
+{% endblock %}
