@@ -21,7 +21,7 @@ def login_page(request):
             user=authenticate(request,username=username,password=password)
             if user is not None:
                     login(request,user)
-                    return HttpResponseRedirect(reverse('index'))
+                    return HttpResponseRedirect(reverse('profile'))
     form=LoginForm()
     data={
         'form':form
@@ -47,7 +47,7 @@ def Register_page(request):
                     user.save()
                     return HttpResponseRedirect(reverse('login_page'))
                 except Exception as e:
-                    print(e)
+                     
                     return HttpResponseRedirect(reverse('register'))
     form=RegisterForm()
     data={

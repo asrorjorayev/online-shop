@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<section>
+    <div class="section about ">
+        <div class="container">
+            <div class="row">
+               <div class="col-12">
+                   <div class="titlepage">
+                    <h2><strong class="black">Savatga</strong>saqlangan</h2>
+                    {% for product in products %}
+                    {% for key,value in quantities.items %}
+                    {% if key == product.id|slugify %}
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h1 class="card-title">{{product.name}} </h1>
+                              <h3 class="card-text">${{product.price}}</h3>
+                              <p class="card-text">umumiy narx ${{narx}}</p>
+                              <h3 class="card-text" style="color: blue;">saqlangan: {{value}} ta</h3>
+                              <div class="d-flex align-items-center mt-3">
+                                <label for="inputQuantity">quentity:  </label>
+                                <input class="form-control text-center me-10 " id="inputQuantity" type="num" value="{{value}}" style="max-width: 3rem;">
+                                {{valueerror}}
+                              </div>
+                              <a href="#" class="btn btn-outline-danger" id="delete_product" data-index="{{product.id}}">Delete</a> <button class="btn btn-outline-primary" id="update-card" data-index="{{product.id}}">Update</button>
+                              <p class="card-text"><small class="text-muted">{{product.about}}</small></p>
+    
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {%endif%}
+                    {%endfor%}
+                    {%endfor%}
+                                <h1>Jami narx ${{totol}}</h1>
+                 </div>
+               </div>
+            </div>
+        </div>
+     </div>
+</section>
+ <script>
+    $(document).on('click','#delete_product',function (e){
+        e.preventDefault();
+        $.ajax(
+           { 
+            type:'POST',
+            url:"{% url 'product:card_delete' %}",
+            data:{
+                product_id: $(this).data('index'),
+                csrfmiddlewaretoken:'{{csrf_token}}',
+                action:'post'
+            },
+            success: function(json){
+               console.log(json)
+               location.reload();
+            }
+        }
+
+        )
+    })
+ 
+ 
+  $(document).on('click','#update-card',function (e){
+      e.preventDefault();
+      $.ajax(
+         { 
+          type:'POST',
+          url:"{% url 'product:card_update' %}",
+          data:{
+              product_id: $(this).data('index'),
+              product_quantity:$('#inputQuantity').val(),
+              csrfmiddlewaretoken:'{{csrf_token}}',
+              action:'post'
+          },
+          success: function(json){
+             console.log(json)
+             location.reload();
+          }
+      }
+
+      )
+  })
+</script>
+{% endblock %}

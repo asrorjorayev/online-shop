@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
  <!-- plant -->
  <div id="plant" class="section  product">
     <div class="container">
        <div class="row">
           <div class="col-md-12 ">
              <div class="titlepage">
-                <h2><strong class="black"> Our</strong>  Products</h2>
+                <h2><strong class="black">Bizning </strong>Mahsulotlar</h2>
                 <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</span>
              </div>
           </div>
@@ -28,7 +27,7 @@
                 <div class="d-flex">
                  
                   &nbsp; &nbsp; &nbsp; &nbsp;<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;">
-                  <button class="btn btn-outline-dark flex-shrink-0" id="add-card" type="button">
+                  <button class="btn btn-outline-dark flex-shrink-0" id="add-card" value="{{product.id}}" type="button">
                      <i class="bi-cart-fill me-1" ></i>
                      Add to card
                   </button>
@@ -42,22 +41,6 @@
       </div>
  </div>
  <!-- end plant -->
- <!--about -->
- <div class="section about ">
-    <div class="container">
-        <div class="row">
-           <div class="col-12">
-               <div class="titlepage">
-                <h2><strong class="black"> About</strong>  Us</h2>
-                <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</span>
-             </div>
-           </div>
-        </div>
-    </div>
- </div>
- 
- 
- 
  <section >
     <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
        <ol class="carousel-indicators">

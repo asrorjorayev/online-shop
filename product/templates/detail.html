@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<!--about -->
-    <div style="background-color:black" id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+    <div style="background-color:burlywood" id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
        <ol class="carousel-indicators">
           <li data-target="#main_slider" data-slide-to="0" class="active"></li>
           <li data-target="#main_slider" data-slide-to="1"></li>
@@ -17,25 +16,27 @@
                          <h1 class="sporrt_text">{{product.name}}</h1>
                          <p  class="lorem_text">{{product.about}}</p>
                          <div class="btn_main">
-                            <div class="d-flex center">
-                                <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;">
+                            <div class="d-flex">
+                              &nbsp; &nbsp; &nbsp; &nbsp;<input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem;">
                                 <button class="btn btn-outline-dark flex-shrink-0" id="add-card" value="{{product.id}}" type="button">
                                    <i class="bi-cart-fill me-1" ></i>
                                    Add to card
                                 </button>
                              </div>
+                             <br>
                          </div>
                       </div>
                    </div>
                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                       <div class="img-box">
-                         <figure><img src="{{ product.image.url}}" style="max-width: 100%; border: 15px solid #fff;"/></figure>
+                         <figure ><img src="{{ product.image.url}}" style="max-width: 100%; border: 15px solid #fff;"/></figure>
                       </div>
                    </div>
                 </div>
              </div>
           </div>
  </section>
+ <!-- scripst code -->
  <script>
     $(document).on('click','#add-card',function (e){
         e.preventDefault();
@@ -45,6 +46,7 @@
             url:"{% url 'product:card_add' %}",
             data:{
                 product_id: $(this).val(),
+                product_quantity:$('#inputQuantity').val(),
                 csrfmiddlewaretoken:'{{csrf_token}}',
                 action:'post'
             },
@@ -57,5 +59,4 @@
         )
     })
  </script>
- <!-- end about -->
 {% endblock %}

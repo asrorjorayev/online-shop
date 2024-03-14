@@ -62,7 +62,7 @@
                            <nav class="main-menu">
                               <ul class="menu-area-main">
                                  <li> <a href="{% url 'product:index' %}">Home</a> </li>
-                                 <li> <a href="about.html">About</a> </li>
+                                 <li> <a href="{% url 'product:about' %}">About</a> </li>
                                  <li><a href="clients.html">Shop_aps</a></li>
                                  <li>
                                     <div>
@@ -74,18 +74,19 @@
                                        </div>
                                  </li>
                                  <li><a href="{% url 'register' %}">Register</a></li>
-                                 <li><a href="{% url 'profile_page' %}">update</a></li>
+                                 
                                  {% if user.is_authenticated %}
+                                    <li><a href="{% url 'profile_page' %}">update</a></li>
                                     <li><a href="{% url 'logout_page' %}">logout</a></li>
                                  {% else %}
                                     <li><a href="{% url 'login_page' %}">login</a></li>
                                  {% endif %}
                                  <form class="d-flex">
-                                    <button class="btn btn-outline-dark" type="submit">
+                                    <a class="btn btn-outline-dark" type="submit" href="{% url 'product:card_summary' %}">
                                        <i class="bi-cart-fill me-1"></i>
                                        Card
                                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{card|length}}</span>
-                                    </button>
+                                 </a>
                                  </form>
                                  </div>
                                  <li class="last"><a href="#"><img src="{% static 'shop_aps/images/search_icon.png' %}" alt="icon"/></a></li>
@@ -130,8 +131,8 @@
                <div class="row marginii">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                      <div class="carousel-caption ">
-                        <h1>Welcome to <strong class="color">Our Shop</strong></h1>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                        <h1>Onlayn dokonga<strong class="color">Xush kelibsiz</strong></h1>
+                        <p></p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">Buy Now</a>
                         <a class="btn btn-lg btn-primary" href="about.html" role="button">About </a>
                      </div>
@@ -149,8 +150,8 @@
                <div class="row marginii">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                      <div class="carousel-caption ">
-                        <h1>Welcome to <strong class="color">Our Shop</strong></h1>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                        <h1>Onlayn dokonga<strong class="color">Xush kelibsiz</strong></h1>
+                        <p> </p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">Buy Now</a>
                         <a class="btn btn-lg btn-primary" href="about.html" role="button">About</a>
                      </div>
@@ -168,8 +169,8 @@
                <div class="row marginii">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                      <div class="carousel-caption ">
-                        <h1>Welcome to <strong class="color">Our Shop</strong></h1>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                        <h1>Onlayn dokonga <strong class="color">Xush kelibsiz</strong></h1>
+                        <p> </p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">Buy Now</a>
                         <a class="btn btn-lg btn-primary" href="about.html" role="button">About</a>
                      </div>
@@ -196,7 +197,7 @@
       <div class="row">
          <div class="col-md-12 ">
             <div class="titlepage">
-               <h2><strong class="black"> Our</strong>  Products</h2>
+               <h2><strong class="black">Bizning</strong>Mahsulotlar</h2>
                <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</span>
             </div>
          </div>
